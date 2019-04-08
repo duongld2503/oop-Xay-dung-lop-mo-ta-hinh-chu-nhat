@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="rectangle" width="200" height="100"></canvas>
+<script>
+
+    function rectangle(d,r) {
+        this.d = d;
+        this.r = r;
+        this.cv = (d+r)*2;
+        this.dt = d*r;
+
+        this.getD = function () {
+            return this.d;
+        }
+        this.getR = function () {
+            return this.r;
+        }
+        this.getCV = function () {
+            return this.cv;
+        }
+        this.getDT = function () {
+            return this.dt;
+        }
+        this.setD = function (d) {
+            this.d = d;
+        }
+        this.setR = function (r) {
+            this.r = r;
+        }
+        this.setCV = function (d,r) {
+            this.cv = (d+r)*2
+        }
+        this.setDT = function (d,r) {
+            this.dt = d*r;
+        }
+    }
+
+    createRectangle();
+
+
+
+    function createRectangle() {
+        var c = document.getElementById('rectangle');
+        var ctx = c.getContext("2d"); //vẽ đồ họa 2 chiều
+        let d = Math.floor(Math.random() * 80);
+        let r = Math.floor(Math.random() * 80);
+        var rtg = new rectangle(d,r); //hình chữ nhật kích thước random d*r.
+
+        ctx.fillRect(0,0,rtg.d,rtg.r); //vẽ hình chữ nhật ở trên.
+        console.log(countCv(d,r));
+        console.log(countDt(d,r));
+    }
+
+    function countCv(d,r) {
+        return (d+r)*2;
+    }
+
+    function countDt(d,r) {
+        return d*r;
+    }
+
+
+
+    // let rtg1 = new rectangle(5,3);
+    // let d = rtg1.getD();
+    // let cv = rtg1.getCV();
+    // alert(cv);
+    //
+    // let rtg2 = new rectangle();
+    // rtg2.setD(5);
+    // rtg2.setR(3);
+    // rtg2.setCV(5,3);
+    // let d2 = rtg2.d;
+    // let r2 = rtg2.r;
+    // let cv2= rtg2.cv;
+    // alert(cv2);
+
+</script>
+</body>
+</html>
